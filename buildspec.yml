@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - $(aws ecr get-login --region us-east-2 --no-include-email)
+      - sleep 5
+  build:
+    commands:
+      - mvn clean
+      - mvn install
+      - docker build -t pgaddam/demo:latest .
+
+  post_build:
+    commands:
+      - docker tag pgaddam/demo:latest 598860148757.dkr.ecr.us-east-2.amazonaws.com/claims:latest
+      - docker push 598860148757.dkr.ecr.us-east-2.amazonaws.com/claims:latest
+      - printf '[{"name":"claims-container-80","imageUri":"598860148757.dkr.ecr.us-east-2.amazonaws.com/claims:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
