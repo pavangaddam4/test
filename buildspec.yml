@@ -1,6 +1,11 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - apt-get install -y maven
   pre_build:
     commands:
       - $(aws ecr get-login --region us-east-2 --no-include-email)
