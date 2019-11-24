@@ -17,6 +17,6 @@ public class DemoController {
 
     @GetMapping(path = "/hello")
     public String getHello() {
-        return "Hello Demo1 success push update. param_name:"+ param_name + " | param.name="+paramName ;
+        return "Hello Demo1 success push update - 1. param_name:"+ param_name + " | param.name="+paramName ;
     }
 }
