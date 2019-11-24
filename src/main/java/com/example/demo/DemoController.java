@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("services")
 public class DemoController {
-    @Value("${param_name}")
-    String param_name;
 
     @Value("${param.name}")
     String paramName;
 
     @GetMapping(path = "/hello")
     public String getHello() {
-        return "Hello Demo1 success push update - 2. param_name:"+ param_name + " | param.name="+paramName ;
+        return "Hello Demo1 success push update - 3. | param.name="+paramName ;
     }
 }
