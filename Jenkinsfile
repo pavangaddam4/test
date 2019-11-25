@@ -24,6 +24,7 @@ pipeline {
                 sh "docker push 598860148757.dkr.ecr.us-east-2.amazonaws.com/claims:latest"
                 sh "sleep 7"
                 sh "aws ecs update-service --cluster claims-fargate-cluster --service claims-service --force-new-deployment"
+                //sh "aws ecs update-service --cluster claims-fargate-cluster --service claims-param-service --force-new-deployment"
                 sh "sleep 40"
             }
             post {
