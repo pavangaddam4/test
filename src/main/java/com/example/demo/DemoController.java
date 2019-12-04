@@ -15,6 +15,6 @@ public class DemoController {
 
     @GetMapping(path = "/hello")
     public String getHello() {
-        return "Demo using jenkins. Version  1. | param.name="+paramName ;
+        return "Demo using jenkins. Version  2. | param.name="+paramName ;
     }
 }
