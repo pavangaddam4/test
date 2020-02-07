@@ -6,7 +6,7 @@ pipeline {
 			steps {
 				git 'https://github.com/pavangaddam4/test.git'
 				sh "pwd"
-				sh "who am i"
+				sh "echo 'Current user: ' $USER"
 			}
 
 		}
