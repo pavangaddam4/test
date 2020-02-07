@@ -2,11 +2,13 @@ pipeline {
 	agent any
 
 	stages {
-	    stage('Clean-Up') {
-            includePattern('**/target/**')
-            deleteDirectories()
-            cleanupParameter('CLEANUP')
-	    }
+	    wrappers {
+                preBuildCleanup { // Clean before build
+                    includePattern('**/target/**')
+                    deleteDirectories()
+                    cleanupParameter('CLEANUP')
+                }
+            }
 		stage('Clone') {
 			steps {
 				git 'https://github.com/pavangaddam4/test.git'
